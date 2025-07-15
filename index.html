@@ -4,136 +4,187 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>不動産仲介パートナー募集 | 株式会社エステートテック</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #007bff;
+            --primary-dark: #0056b3;
+            --accent-color: #e67e22;
+            --accent-dark: #d35400;
+            --text-dark: #2c3e50;
+            --text-light: #ffffff;
+            --bg-light: #f9f9f9;
+            --bg-white: #ffffff;
+        }
         body {
-            font-family: 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+            font-family: 'Poppins', 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
             line-height: 1.8;
-            color: #333;
-            background-color: #f9f9f9;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
             margin: 0;
             padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         .container {
-            max-width: 960px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
         header {
-            background-color: #fff;
+            background-color: var(--bg-white);
             padding: 20px 0;
             border-bottom: 1px solid #eee;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         header h1 {
             margin: 0;
-            font-size: 24px;
-            color: #007bff;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
         }
         .hero {
-            background-color: #007bff;
-            color: #fff;
-            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--text-light);
+            padding: 120px 20px;
             text-align: center;
         }
         .hero h2 {
-            font-size: 48px;
+            font-size: 52px;
+            font-weight: 700;
             margin: 0 0 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
         .hero p {
-            font-size: 20px;
-            margin: 0 0 30px;
+            font-size: 22px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
         }
         .cta-button {
             display: inline-block;
-            background-color: #e67e22;
-            color: #fff;
-            padding: 15px 30px;
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            padding: 18px 36px;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         .cta-button:hover {
-            background-color: #d35400;
+            background-color: var(--accent-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
         .section {
-            padding: 80px 0;
+            padding: 100px 0;
             text-align: center;
         }
-        .section:nth-child(odd) {
-            background-color: #fff;
+        .section:nth-child(even) {
+            background-color: var(--bg-white);
         }
         .section h3 {
-            font-size: 36px;
-            margin-bottom: 40px;
-            color: #007bff;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: var(--text-dark);
         }
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
             text-align: left;
         }
         .feature-item {
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            background: var(--bg-white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-color);
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        .feature-item .icon {
+            margin-bottom: 20px;
+        }
+        .feature-item .icon svg {
+            width: 50px;
+            height: 50px;
+            color: var(--primary-color);
         }
         .feature-item h4 {
-            font-size: 20px;
-            color: #e67e22;
-            margin: 0 0 10px;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 0 0 15px;
         }
         .testimonial {
-            background-color: #007bff;
-            color: #fff;
-            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            color: var(--text-light);
+            padding: 100px 20px;
             text-align: center;
         }
+        .testimonial h3 {
+            color: var(--text-light);
+        }
         .testimonial blockquote {
-            font-size: 22px;
+            font-size: 24px;
             font-style: italic;
-            max-width: 700px;
-            margin: 0 auto 20px;
+            max-width: 750px;
+            margin: 0 auto 30px;
             border: none;
             padding: 0;
+            opacity: 0.95;
         }
         .testimonial cite {
-            font-weight: bold;
+            font-weight: 600;
+            font-style: normal;
+            font-size: 18px;
         }
         .discord-section {
-            background-color: #7289da; /* Discord Blue */
-            color: #fff;
-            padding: 60px 20px;
+            background-color: #5865F2; /* Official Discord Blurple */
+            color: var(--text-light);
+            padding: 80px 20px;
             text-align: center;
         }
         .discord-button {
             display: inline-flex;
             align-items: center;
-            background-color: #fff;
-            color: #7289da;
-            padding: 15px 30px;
+            background-color: var(--bg-white);
+            color: #5865F2;
+            padding: 18px 36px;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
+            border-radius: 50px;
+            font-weight: 600;
             font-size: 18px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         .discord-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
         .discord-button svg {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
+            width: 28px;
+            height: 28px;
+            margin-right: 12px;
         }
         footer {
-            background-color: #0056b3;
-            color: #fff;
+            background-color: var(--text-dark);
+            color: var(--text-light);
             text-align: center;
-            padding: 20px 0;
+            padding: 40px 0;
         }
     </style>
 </head>
@@ -157,14 +208,23 @@
                 <h3>単独での成長に限界を感じていませんか？</h3>
                 <div class="features-grid">
                     <div class="feature-item">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01" /></svg>
+                        </div>
                         <h4>新規顧客の枯渇</h4>
                         <p>従来の集客手法だけでは、安定した顧客獲得が難しくなってきた。</p>
                     </div>
                     <div class="feature-item">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
                         <h4>提案力の限界</h4>
                         <p>顧客の多様なニーズに応えきれず、機会損失が発生している。</p>
                     </div>
                     <div class="feature-item">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                        </div>
                         <h4>収益源の伸び悩み</h4>
                         <p>仲介手数料以外の新たな収益の柱がなく、売上が頭打ちになっている。</p>
                     </div>
@@ -175,17 +235,26 @@
         <section id="solution" class="section">
             <div class="container">
                 <h3>エステートテックとの提携が、すべてを解決します。</h3>
-                <p style="max-width: 700px; margin: 0 auto 40px;">私たちは、貴社の既存ビジネスと強力なシナジーを生み出すアライアンスプログラムをご提供します。<br>送客、共同開発、新サービス展開など、可能性は無限大です。</p>
+                <p style="max-width: 700px; margin: 0 auto 60px;">私たちは、貴社の既存ビジネスと強力なシナジーを生み出すアライアンスプログラムをご提供します。<br>送客、共同開発、新サービス展開など、可能性は無限大です。</p>
                 <div class="features-grid">
                     <div class="feature-item">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                        </div>
                         <h4>🤝 新規顧客の安定供給</h4>
                         <p>弊社の持つ豊富な見込み顧客リストとマーケティング力を活用し、質の高い顧客を貴社へ送客します。</p>
                     </div>
                     <div class="feature-item">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.707.707M12 21v-1m-6.364-1.636l.707-.707" /></svg>
+                        </div>
                         <h4>🤝 提案力・商品力の強化</h4>
                         <p>弊社のサービス・商品を貴社のラインナップに加え、顧客満足度と単価を同時に向上させます。</p>
                     </div>
                     <div class="feature-item">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 13v-1m4 1v-3m4 3V8M8 21l4-4 4 4M3 4h18M4 4h16v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" /></svg>
+                        </div>
                         <h4>🤝 新たな収益モデルの構築</h4>
                         <p>レベニューシェアモデルで、貴社に新たな収益源を構築。安定した事業基盤を築きます。</p>
                     </div>
